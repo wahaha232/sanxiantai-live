@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanxiantai Live View</title>
+  <meta name="description" content="Watch the live stream from Sanxiantai for real-time weather and scenic views. Located in eastern Taiwan, known for its coastal beauty and iconic bridge." />
+  <meta name="keywords" content="Sanxiantai, Taiwan, live cam, Taitung, Pacific coast, sea view, weather, tourism" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    body > * {
+      background-color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    header {
+      background-color: #005f8d;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    nav.navbar {
+      background-color: #005f8d;
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #005f8d;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+      }
+      .menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+      }
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    iframe {
+      width: 90%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      margin: 20px auto;
+    }
+    .ad-placeholder {
+      margin: 30px auto;
+      max-width: 728px;
+      height: 90px;
+      background-color: #ddd;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .description {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #005f8d;
+      margin-top: 20px;
+    }
+    .map-link i {
+      font-size: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <span class="nav-logo">Sanxiantai Live</span>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Sanxiantai Live View</h1>
+    <p>Real-time image and weather from Taitung's stunning coastline</p>
+  </header>
+
+  <main>
+    <div class="description">
+      <p><strong>About Sanxiantai:</strong> Sanxiantai is a scenic coastal area in Taitung, eastern Taiwan. Known for its iconic footbridge and dramatic rock formations, it is a popular destination for sightseeing, photography, and nature lovers. This page provides a live stream, weather forecast, and travel information.</p>
+      <p><strong>Location:</strong>
+        <a class="map-link" href="https://www.google.com/maps/place/%E4%B8%89%E4%BB%99%E5%8F%B0/@23.1269454,121.4140171,17z" target="_blank">
+          <i class="fas fa-map-marker-alt"></i> View on Google Maps
+        </a>
+      </p>
+    </div>
+
+    <iframe src="https://www.youtube.com/embed/dQ7Sd6PGLdA?autoplay=1&mute=1" allowfullscreen></iframe>
+
+    
+<!-- Weather Card (OpenWeatherMap API) -->
+<div class="weather-card" style="background-color: #2e3b55; color: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); width: 100%; max-width: 320px; margin: 0 auto; font-family: 'Segoe UI', sans-serif;">
+  <div style="display: flex; justify-content: space-between; font-size: 0.9em; color: #ccc;">
+    <div id="weekday">Loading</div>
+    <div id="date">--</div>
+  </div>
+  <h2 style="margin: 20px 0 10px; font-size: 1.4em;">Sanxiantai</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div id="temp" style="font-size: 3em; font-weight: bold;">--°C</div>
+    <img id="weather-icon" src="" alt="weather" style="width: 60px; height: 60px;">
+  </div>
+  <div style="display: flex; justify-content: space-between; font-size: 0.9em; color: #bbb; margin-top: 15px;">
+    <div id="rain">💧 --%</div>
+    <div id="wind">💨 --km/h</div>
+    <div id="wind-dir">📍 --</div>
+  </div>
+</div>
+
+<script>
+  // 日期更新
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const now = new Date();
+  document.getElementById('weekday').textContent = days[now.getDay()];
+  document.getElementById('date').textContent = now.getDate() + ' ' + now.toLocaleString('default', { month: 'short' });
+
+  // OpenWeatherMap API fetch
+  fetch('https://api.openweathermap.org/data/2.5/weather?lat=23.1269&lon=121.4150&appid=39125b68b267d03f08f70580b5a476cd&units=metric')
+    .then(response => response.json())
+    .then(data => {
+      const temp = Math.round(data.main.temp);
+      const icon = data.weather[0].icon;
+      const wind = Math.round(data.wind.speed * 3.6); // m/s to km/h
+      const deg = data.wind.deg;
+      const rain = data.rain ? Math.round((data.rain['1h'] || 0) * 10) : 0;
+
+      document.getElementById('temp').textContent = temp + '°C';
+      document.getElementById('weather-icon').src = 'https://openweathermap.org/img/wn/' + icon + '@2x.png';
+      document.getElementById('rain').textContent = '💧 ' + rain + '%';
+      document.getElementById('wind').textContent = '💨 ' + wind + 'km/h';
+      document.getElementById('wind-dir').textContent = '📍 ' + degToCompass(deg);
+    });
+
+  function degToCompass(num) {
+    const val = Math.floor((num / 22.5) + 0.5);
+    const arr = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+    return arr[(val % 16)];
+  }
+</script>
+
+
+    <section class="description" style="margin-top: 40px; text-align: left;">
+      <h2>Visitor Information</h2>
+      <p><strong>Phone:</strong> +886-89-854097</p>
+      <p><strong>Address:</strong> No. 74, Jihui Rd., Chenggong Township, Taitung County, Taiwan</p>
+      <p><strong>Opening Hours:</strong> Open 24 hours</p>
+      <p><strong>Admission Fee:</strong><br>
+        Large Vehicle: NT$200 (weekends), NT$170 (weekdays)<br>
+        Small Vehicle: NT$60 (weekends), NT$50 (weekdays)<br>
+        Motorcycle: NT$20 (weekends), NT$15 (weekdays)
+      </p>
+    </section>
+  <div class="ad-placeholder">Advertisement Placeholder (Google AdSense ready)</div>
+  </main>
+
+  <footer>
+    Source: Sanxiantai YouTube Channel
+  </footer>
+</body>
+</html>
